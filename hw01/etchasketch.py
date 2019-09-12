@@ -25,6 +25,7 @@ def main(stdscr):
 
 		key = stdscr.getch()
 
+		# Updates current position based on button pressed
 		if key == curses.KEY_LEFT:
 			if cur_x > 0:
 				cur_x = cur_x - 1
@@ -42,10 +43,11 @@ def main(stdscr):
 			cur_x = 0
 			cur_y = 0
 
+		# Prints an X in the current position
 		stdscr.addstr(5 + cur_y, 2 + cur_x * 2, 'X')
 		stdscr.move(5 + cur_y, 2 + cur_x * 2)
 
-
+# Resets to an empty frame
 def new_frame(stdscr, size):
 	stdscr.erase()
 
@@ -62,5 +64,5 @@ def new_frame(stdscr, size):
 	stdscr.move(5, 2)
 	stdscr.refresh()
 
-
+# Calls main with a wrapper around curses
 curses.wrapper(main)
