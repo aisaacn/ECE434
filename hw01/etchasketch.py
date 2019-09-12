@@ -2,19 +2,23 @@
 import curses
 import argparse
 
-def main():
-	stdscr = curses.initscr()
+def main(stdscr):
+	# Use --size to specify size of board. Defaults to 8x8
+	parser = argparse.ArgumentParser()
+	parser.add_argument("--size", type=int, default=8)
+	args = parser.parse_args()
+	size = args.size
 
+	# Setup curses
 	curses.noecho()
 	curses.cbreak()
 	stdscr.keypad(True)
+	curses.curs_set(1)
 
-	stdscr.addstr(0, 0, "hello")
+	new_frame(stdscr, size)
 
-	#new_frame(stdscr)
-
-	x_size = 8
-	y_size = 8
+	cur_x = 0
+	cur_y = 0
 
 	while True:
 		stdscr.refresh()
@@ -22,25 +26,41 @@ def main():
 		key = stdscr.getch()
 
 		if key == curses.KEY_LEFT:
-			# do left
-			stdscr.addstr(5, 5, "left")
+			if cur_x > 0:
+				cur_x = cur_x - 1
 		elif key == curses.KEY_RIGHT:
-			# do right
-			stdscr.addstr(6, 6, "right")
+			if cur_x < size - 1:
+				cur_x = cur_x + 1
 		elif key == curses.KEY_UP:
-			# do up
-			stdscr.addstr(7, 7, "up")
+			if cur_y > 0:
+				cur_y = cur_y - 1
 		elif key == curses.KEY_DOWN:
-			# do down
-			stdscr.addstr(8, 8, "down")
+			if cur_y < size - 1:
+				cur_y = cur_y + 1
 		elif key == ord('c'):
-			# clear
-			stdscr.addstr(4, 4, "clear")
+			new_frame(stdscr, size)
+			cur_x = 0
+			cur_y = 0
+
+		stdscr.addstr(5 + cur_y, 2 + cur_x * 2, 'X')
+		stdscr.move(5 + cur_y, 2 + cur_x * 2)
 
 
-
-
-def new_frame(stdscr):
+def new_frame(stdscr, size):
 	stdscr.erase()
 
-	stdscr.addstr(0, 0, "hi welcome to the show\n")
+	stdscr.addstr(0, 0, "Welcome to Etch-a-Sketch!\nUse the arrow keys to move the cursor.\nPress 'c' to clear the screen.")
+	
+	# Draw boundaries
+	for i in range(size):
+		stdscr.addstr(4, 2 + i * 2, '_') #str(i))
+		stdscr.addstr(4 + size, 2 + i * 2, '_')
+		stdscr.addstr(5 + i, 0, '|') #str(i))
+		stdscr.addstr(5 + i, size * 2 + 1, '|')
+
+	stdscr.addstr(5, 2, 'X')
+	stdscr.move(5, 2)
+	stdscr.refresh()
+
+
+curses.wrapper(main)
