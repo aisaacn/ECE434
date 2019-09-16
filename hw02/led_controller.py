@@ -27,7 +27,7 @@ def main():
 	GPIO.setup("P9_20", GPIO.IN) # clear
 	GPIO.add_event_detect("P9_20", GPIO.RISING)
 
-
+	# If button is pressed, switch the appropriate LED
 	while True:
 		if GPIO.event_detected("P9_23"):
 			switch_led(11, led2)
@@ -55,7 +55,7 @@ def main():
 			GPIO.output("P9_14", GPIO.LOW)
 			led3 = False
 
-
+# Function to toggle an LED in the given GPIO port
 def switch_led(gpio, on):
 	if on:
 		GPIO.output("P9_{}".format(gpio), GPIO.LOW)
