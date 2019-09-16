@@ -17,3 +17,9 @@ The board defaults to an 8x8 size. To change the board size, use the --size comm
 The above command creates a 12x12 grid as opposed to 8x8. Currently, this program only supports square boards.
 
 Use the arrow keys to move the cursor. Press 'c' to clear the board.
+
+## Prof. Yoder's comments
+
+Everything looks good.  Nice etch-a-sketch.
+
+Grade:  10/10
