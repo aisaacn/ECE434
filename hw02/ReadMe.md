@@ -16,7 +16,7 @@ Oscilloscope Questions
 	Max Voltage: 2.96V
 2) 	296.82ms
 3)	Not close at all, almost three times
-4)	I have no idea why they differ
+4)	I have no idea why they differ						# Yoder:  OS overhead
 5) 	About 20%
 6)	The mean period always stays around 300ms
 	Smaller values increase the processor usage
@@ -26,3 +26,11 @@ Oscilloscope Questions
 10)	Period stayed the same
 11)	Drops as low as 55ms with sleep time of 0.01,
 	but average stays around 300
+
+
+## Prof. Yoder's comments
+
+C version is missing.
+etch-a-sketch looks good.  
+
+Grade:  7/10
