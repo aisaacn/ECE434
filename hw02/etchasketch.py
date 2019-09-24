@@ -29,8 +29,8 @@ def main(stdscr):
 	GPIO.setup("P9_21", GPIO.IN) # right
 	GPIO.add_event_detect("P9_21", GPIO.RISING)
 
-	GPIO.setup("P9_20", GPIO.IN) # clear
-	GPIO.add_event_detect("P9_20", GPIO.RISING)
+	GPIO.setup("P9_26", GPIO.IN) # clear
+	GPIO.add_event_detect("P9_26", GPIO.RISING)
 
 	new_frame(stdscr, size)
 
@@ -53,7 +53,7 @@ def main(stdscr):
 		elif GPIO.event_detected("P9_22"):
 			if cur_y < size - 1:
 				cur_y = cur_y + 1
-		elif GPIO.event_detected("P9_20"):
+		elif GPIO.event_detected("P9_26"):
 			new_frame(stdscr, size)
 			cur_x = 0
 			cur_y = 0
