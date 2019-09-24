@@ -29,8 +29,8 @@ def main():
 	GPIO.setup("P9_26", GPIO.IN) # clear
 	GPIO.add_event_detect("P9_26", GPIO.RISING)
 
-	xEncoder = RotaryEncoder(eQEP1)
-	yEncoder = RotaryEncoder(eQEP2)
+	xEncoder = RotaryEncoder(eQEP2)
+	yEncoder = RotaryEncoder(eQEP1)
 
 	xEncoder.setAbsolute()
 	yEncoder.setAbsolute()
