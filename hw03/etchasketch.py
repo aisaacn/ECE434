@@ -66,7 +66,7 @@ def main():
 			delta = int(math.pow(2, cur_y))
 			image[index] = image[index] + delta
 			board[cur_x][cur_y] = True
-		
+
 		bus.write_i2c_block_data(matrix, 0, image)
 
 
