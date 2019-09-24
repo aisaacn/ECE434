@@ -4,11 +4,9 @@ import smbus
 import argparse
 import math
 import Adafruit_BBIO.GPIO as GPIO
-from Adafruit_BBIO.Encoder import RotaryEncoder, eQEP1, eQEP2
 
 bus = smbus.SMBus(2)
 matrix = 0x70
-
 
 def main():
 	size = 8 # static when using 8x8 matrix
@@ -28,18 +26,6 @@ def main():
 
 	GPIO.setup("P9_26", GPIO.IN) # clear
 	GPIO.add_event_detect("P9_26", GPIO.RISING)
-
-	xEncoder = RotaryEncoder(eQEP1)
-	yEncoder = RotaryEncoder(eQEP2)
-
-	xEncoder.setAbsolute()
-	yEncoder.setAbsolute()
-
-	xEncoder.enable()
-	yEncoder.enable()
-
-	enc_x = xEncoder.position
-	enc_y = yEncoder.position
 
 	cur_x = 0
 	cur_y = 0
@@ -75,35 +61,9 @@ def main():
 			image = new_image()
 			board = new_board(size)
 
-		# Updates current position based on rotary encoder
-		if xEncoder.position < enc_x - 3:
-			if cur_x < size - 1:
-				cur_x = cur_x + 1
-				changed = True
-			enc_x = xEncoder.position
-		elif xEncoder.position > enc_x + 3:
-			if cur_x > 0:
-				cur_x = cur_x - 1
-				changed = True
-			enc_x = xEncoder.position
-
-		if yEncoder.position < enc_y - 3:
-			if cur_y < size - 1:
-				cur_y = cur_y + 1
-				changed = True
-			enc_y = yEncoder.position
-		elif yEncoder.position > enc_y + 3:
-			if cur_y > 0:
-				cur_y = cur_y - 1
-				changed = True
-			enc_y = yEncoder.position
-
-#		enc_x = xEncoder.position
-#		enc_y = yEncoder.position
-
 		# If x,y was changed and that spot on the board is not on
 		if changed and not board[cur_x][cur_y]:
-			index = 2 * cur_x # + 1 # add this for red
+			index = 2 * cur_x + 1
 			delta = int(math.pow(2, cur_y))
 			image[index] = image[index] + delta
 			board[cur_x][cur_y] = True
@@ -113,7 +73,7 @@ def main():
 
 # Return empty matrix
 def new_image():
-	return [0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	return [0x00, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 			0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]
 
 
