@@ -9,3 +9,9 @@ Use the buttons to move the cursor.
 
 I changed etchasketch.py to use either the rotary encoders or the buttons
 with the 8x8 LED matrix.
+
+## Prof. Yoder's comments
+
+Looks good.  
+
+Grade:  10/10
