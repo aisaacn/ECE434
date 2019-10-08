@@ -27,3 +27,10 @@ Inside text.sh is a convert command that edits the original boris.png file
 	to include text and specify font.
 
 
+## Prof. Yoder's comments
+
+LCD looks good.  
+Memory map and mmap are missing.
+Pictures are missing.
+
+Grade:  5/10
