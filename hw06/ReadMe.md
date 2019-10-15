@@ -13,3 +13,8 @@ ECE434 - HW06
 9) Mainline is a model that shows tasks being executed with interrupts 
 10) The non-critical interrupt is preventing the CPU from addressing the event
 11) A further interrupt tells the CPU that a more critical event should be handled first
+
+I included two pngs, one referencing high load and the other no load. For a load, I
+repeatedly ran a make and make clean to compile and subsequently remove a simple
+Hello World c script. It appears that the RT kernel has a higher initialization cost,
+but performs better over time.
