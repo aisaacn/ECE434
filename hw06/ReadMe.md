@@ -18,3 +18,13 @@ I included two pngs, one referencing high load and the other no load. For a load
 repeatedly ran a make and make clean to compile and subsequently remove a simple
 Hello World c script. It appears that the RT kernel has a higher initialization cost,
 but performs better over time.
+
+
+## Prof. Yoder's comments
+
+Answer look good, but I think 4 and 6 are swapped. 
+The RT plot in histintense.png doesn't seem as bounded as it should be.  Could
+be you had a heaver load than others.
+
+Late: 1
+Grade:  9/10
