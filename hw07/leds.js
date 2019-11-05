@@ -9,7 +9,7 @@ const LED1 = 'P9_14';
 const button = 'P9_25';
 b.pinMode(LED0, b.OUTPUT);
 b.pinMode(button, b.INPUT);
-b.pinMode(LED1, b.OUTPUT);
+b.pinMode(LED1, b.ANALOG_OUTPUT);
 
 const AUTH = 'hN76gX5_ioy0zObHPqxGL92FoUvGssan';
 
