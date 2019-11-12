@@ -17,3 +17,9 @@ PRU
  -
 
 5.10 Analog Wave Generator
+
+## Prof. Yoder's comments
+
+Looks like this was never finished. 
+
+Grade:  0/10

@@ -9,3 +9,12 @@ using bash scripts, because it can easily be accomplished in one line.
 
 I wrote a python script that repeatedly gets the temperature, and then
 writes each value to the table.
+
+## Prof. Yoder's comments
+
+bash is good for a quick hack, but I was looking for pure python.
+Waiting for permission to see your sheet.
+
+No ThingSpeak:  -2
+Grade:  8/10
+
